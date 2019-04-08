@@ -1,0 +1,26 @@
+[package]
+name = "imx8mm"
+version = "0.1.0"
+authors = ["Alexey Firago <firago.alexey@gmail.com>"]
+edition = "2018"
+description = "Device support crate for NXP iMX8MM devices"
+readme = "README.md"
+keywords = ["svd2rust", "no_std", "embedded"]
+categories = ["embedded", "no-std"]
+license = "MIT/Apache-2.0"
+
+[dependencies]
+bare-metal = "0.2.4"
+vcell = "0.1.0"
+cortex-m = "0.5.8"
+
+[dependencies.cortex-m-rt]
+optional = true
+version = "0.6.7"
+
+[features]
+default = ["rt"]
+rt = ["cortex-m-rt/device"]
+
+[package.metadata.docs.rs]
+features = ["rt"]
