@@ -1,0 +1,38 @@
+[package]
+name = "imx8mm-hal"
+version = "0.1.0"
+authors = ["Alexey Firago <firago.alexey@gmail.com>"]
+categories = [
+    "embedded",
+    "hardware-support",
+    "no-std",
+]
+keywords = [
+    "arm",
+    "cortex-m",
+    "stm32f4xx",
+    "hal",
+]
+edition = "2018"
+
+[dependencies]
+cortex-m = "0.5.8"
+cortex-m-rt = "0.6.7"
+nb = "0.1.1"
+void = { version = "1.0.2", default-features = false }
+bare-metal = "0.2.4"
+
+[dependencies.embedded-hal]
+features = ["unproven"]
+version = "0.2.2"
+
+[dependencies.imx8mm]
+path = "../imx8mm"
+version = "0.1.0"
+
+[dev-dependencies]
+panic-halt = "0.2.0"
+
+[features]
+default = ["rt"]
+rt = ["imx8mm/rt"]
